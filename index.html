@@ -903,11 +903,10 @@
                     <label for="type-filter">Practice Type</label>
                     <select id="type-filter">
                         <option value="all">All Types</option>
-                        <option value="full-service">Full-Service Hospital</option>
-                        <option value="aaha">AAHA Accredited</option>
-                        <option value="emergency">Emergency Services</option>
-                        <option value="corporate">Corporate Chain</option>
-                        <option value="specialty">Specialty Care</option>
+                        <option value="general">General Practice</option>
+                        <option value="hospital">Full-Service Hospital</option>
+                        <option value="emergency">Emergency Center</option>
+                        <option value="mobile">Mobile/In-Home</option>
                     </select>
                 </div>
                 
@@ -919,18 +918,30 @@
                         <option value="shiloh">Shiloh/Swansea</option>
                         <option value="fairview">Fairview Heights</option>
                         <option value="belleville">Belleville</option>
-                        <option value="emergency">Emergency Centers</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="service-filter">Special Services</label>
+                    <label for="service-filter">Services (Medical + Emergency)</label>
                     <select id="service-filter">
                         <option value="all">All Services</option>
                         <option value="exotic">Exotic Pet Care</option>
                         <option value="rehab">Rehabilitation/Physical Therapy</option>
-                        <option value="weekend">Weekend Hours</option>
+                        <option value="surgery">Advanced Surgery</option>
                         <option value="24hour">24/7 Emergency</option>
+                        <option value="weekend">Weekend Hours</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="convenience-filter">Convenience & Financing</label>
+                    <select id="convenience-filter">
+                        <option value="all">All Options</option>
+                        <option value="sameday">Same-Day Appointments</option>
+                        <option value="online">Online Booking</option>
+                        <option value="financing">Multiple Financing Options</option>
+                        <option value="wellness">Wellness Plans Available</option>
+                        <option value="discounts">Military/First Responder Discounts</option>
                     </select>
                 </div>
             </div>
@@ -942,8 +953,8 @@
                             <th>Practice Name</th>
                             <th>Location</th>
                             <th>Type</th>
-                            <th>AAHA</th>
-                            <th>Specialties</th>
+                            <th>Services</th>
+                            <th>Convenience</th>
                             <th>Rating</th>
                         </tr>
                     </thead>
@@ -1098,6 +1109,7 @@
             id: "four-paws-animal-hospital",
             name: "Four Paws Animal Hospital",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "O'Fallon",
             specialties: ["AAHA Accredited", "Rehabilitation", "Chemotherapy", "Acupuncture"],
             rating: 4.6,
@@ -1127,12 +1139,24 @@
             exoticPets: true,
             rehabilitation: true,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["Scratchpay"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "Client Loyalty Program",
+            multipleFinancing: true,
+            advancedSurgery: true
           },
           {
             id: "healthy-pets-animal-hospital",
             name: "Healthy Pets Animal Hospital and Rehabilitation Center",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "O'Fallon",
             specialties: ["AAHA Accredited", "Rehabilitation", "Physical Therapy", "Regenerative Medicine"],
             rating: 4.8,
@@ -1162,12 +1186,24 @@
             exoticPets: true,
             rehabilitation: true,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: [],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "None Listed",
+            multipleFinancing: false,
+            advancedSurgery: true
           },
           {
             id: "banfield-pet-hospital",
             name: "Banfield Pet Hospital",
             type: "Corporate Chain",
+            practiceCategory: "general",
             location: "O'Fallon",
             specialties: ["Optimum Wellness Plans", "Preventive Care", "Corporate Standards"],
             rating: 3.8,
@@ -1197,12 +1233,24 @@
             exoticPets: true,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: "Call to Check",
+            otherFinancing: [],
+            paymentPlans: false,
+            wellnessPlans: true,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "Complimentary office visit for new clients",
+            multipleFinancing: false,
+            advancedSurgery: false
           },
           {
             id: "animal-hospital-ofallon",
             name: "Animal Hospital of O'Fallon",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "O'Fallon",
             specialties: ["Exotic Pet Care", "Full-Service", "Same-Day Appointments"],
             rating: 4.5,
@@ -1232,13 +1280,25 @@
             exoticPets: true,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: [],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: true,
+            onlineBooking: true,
+            specialDiscounts: "$25 for you, $25 for a friend referral program",
+            multipleFinancing: false,
+            advancedSurgery: true
           },
           // Surrounding Area Practices
           {
             id: "shiloh-veterinary-clinic",
             name: "Shiloh Veterinary Clinic",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "Shiloh",
             specialties: ["Daytime Emergency", "Acupuncture", "Laser Therapy", "General Practice"],
             rating: 4.7,
@@ -1267,12 +1327,24 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: false,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["Scratchpay"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: false
           },
           {
             id: "lashley-animal-hospital",
             name: "Lashley Animal Hospital",
             type: "Regional Powerhouse",
+            practiceCategory: "hospital",
             location: "Swansea",
             specialties: ["50+ Years Experience", "Family-Operated", "State-of-the-Art Facility"],
             rating: 4.8,
@@ -1302,12 +1374,24 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: [],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "None Listed",
+            multipleFinancing: false,
+            advancedSurgery: true
           },
           {
             id: "best-friends-animal-hospital",
             name: "Best Friends Animal Hospital & Pet Resources",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "Swansea",
             specialties: ["AAHA Accredited", "Fear Free Certified", "Exotic Pet Care", "Laser Therapy"],
             rating: 4.9,
@@ -1337,12 +1421,24 @@
             exoticPets: true,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: [],
+            paymentPlans: true,
+            wellnessPlans: true,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "10% Military/Law Enforcement/EMS/Firefighter, $10 first-time clients, $50 refer-a-friend",
+            multipleFinancing: true,
+            advancedSurgery: true
           },
           {
             id: "st-clair-animal-hospital",
             name: "St. Clair Animal Hospital",
             type: "General Practice",
+            practiceCategory: "general",
             location: "Fairview Heights",
             specialties: ["Wellness Exams", "Preventive Care", "Dental Care", "Traditional Practice"],
             rating: 4.4,
@@ -1372,12 +1468,24 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["Scratchpay (Unconfirmed)"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: false,
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: false
           },
           {
             id: "fairview-heights-animal-clinic",
             name: "Fairview Heights Animal Clinic",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "Fairview Heights",
             specialties: ["Exotic Pet Care", "Same-Day Appointments", "Full-Service"],
             rating: 4.3,
@@ -1407,12 +1515,24 @@
             exoticPets: true,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: [],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: true,
+            onlineBooking: true,
+            specialDiscounts: "$25 for you, $25 for a friend referral program",
+            multipleFinancing: false,
+            advancedSurgery: true
           },
           {
             id: "belleville-animal-clinic",
             name: "Belleville Animal Clinic",
             type: "General Practice",
+            practiceCategory: "general",
             location: "Belleville",
             specialties: ["General Practice", "Medical Care", "Surgical Care", "Traditional Approach"],
             rating: 4.2,
@@ -1442,12 +1562,24 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: "Call to Check",
+            otherFinancing: ["Scratchpay"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: "Call to Check",
+            onlineBooking: false,
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: true
           },
           {
             id: "hoof-and-paw-animal-clinic",
             name: "Hoof and Paw Animal Clinic",
             type: "Full-Service Hospital",
+            practiceCategory: "hospital",
             location: "Belleville",
             specialties: ["Since 1982", "Husband-Wife Team", "Compassionate Care", "Affordable"],
             rating: 4.9,
@@ -1477,12 +1609,24 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["All Pet Card"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: true,
+            onlineBooking: false,
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: true
           },
           {
             id: "metro-east-vet",
             name: "Metro East Vet",
             type: "Specialty/Mobile",
+            practiceCategory: "mobile",
             location: "Belleville",
             specialties: ["Low-Stress Handling", "In-Home Care", "Acupuncture", "Fear-Free"],
             rating: 5.0,
@@ -1512,13 +1656,25 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: false
+            emergency24: false,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["All Pet Card"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: "Call to Check",
+            sameDayAppointments: "Call to Check",
+            onlineBooking: true,
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: false
           },
           // Emergency & Specialty Hospitals
           {
             id: "animal-emergency-center",
             name: "Animal Emergency Center",
             type: "24/7 Emergency Center",
+            practiceCategory: "emergency",
             location: "Collinsville",
             specialties: ["24/7 Emergency", "Critical Care", "Advanced Diagnostics", "Intensive Care"],
             rating: 4.1,
@@ -1548,12 +1704,24 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: true
+            emergency24: true,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["Scratchpay"],
+            paymentPlans: false,
+            wellnessPlans: false,
+            petInsurance: true,
+            sameDayAppointments: true,
+            onlineBooking: false,
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: true
           },
           {
             id: "hawthorne-animal-hospital",
             name: "Hawthorne Animal Hospital",
             type: "24/7 Full-Service Hospital",
+            practiceCategory: "emergency",
             location: "Glen Carbon",
             specialties: ["AAHA Accredited", "24/7 Services", "Emergency Care", "Wellness Plans"],
             rating: 4.4,
@@ -1583,7 +1751,18 @@
             exoticPets: false,
             rehabilitation: false,
             weekendHours: true,
-            emergency24: true
+            emergency24: true,
+            // New financing and convenience data
+            careCredit: true,
+            otherFinancing: ["Scratchpay"],
+            paymentPlans: false,
+            wellnessPlans: true,
+            petInsurance: true,
+            sameDayAppointments: true,
+            onlineBooking: "Call to Check",
+            specialDiscounts: "None Listed",
+            multipleFinancing: true,
+            advancedSurgery: true
           }
         ];
 
@@ -1852,19 +2031,27 @@
                 typeCell.textContent = practice.type;
                 row.appendChild(typeCell);
                 
-                // AAHA cell
-                const aahaCell = document.createElement('td');
-                aahaCell.textContent = practice.aaha ? 'Yes' : 'No';
-                if (practice.aaha) {
-                    aahaCell.style.color = 'var(--success-color)';
-                    aahaCell.style.fontWeight = '600';
-                }
-                row.appendChild(aahaCell);
+                // Services cell (Medical + Emergency)
+                const servicesCell = document.createElement('td');
+                const topServices = [];
+                if (practice.aaha) topServices.push('AAHA');
+                if (practice.exoticPets) topServices.push('Exotic Pets');
+                if (practice.rehabilitation) topServices.push('Rehab');
+                if (practice.emergency24) topServices.push('24/7 Emergency');
+                if (practice.advancedSurgery) topServices.push('Surgery');
+                servicesCell.textContent = topServices.length > 0 ? topServices.slice(0, 2).join(', ') : 'Standard Care';
+                row.appendChild(servicesCell);
                 
-                // Specialties cell
-                const specialtiesCell = document.createElement('td');
-                specialtiesCell.textContent = practice.specialties.slice(0, 2).join(', ');
-                row.appendChild(specialtiesCell);
+                // Convenience cell
+                const convenienceCell = document.createElement('td');
+                const convenienceFeatures = [];
+                if (practice.sameDayAppointments === true) convenienceFeatures.push('Same-Day');
+                else if (practice.sameDayAppointments === 'Call to Check') convenienceFeatures.push('Call to Check');
+                if (practice.onlineBooking) convenienceFeatures.push('Online Booking');
+                if (practice.multipleFinancing) convenienceFeatures.push('Multiple Financing');
+                if (practice.wellnessPlans) convenienceFeatures.push('Wellness Plans');
+                convenienceCell.textContent = convenienceFeatures.length > 0 ? convenienceFeatures.slice(0, 2).join(', ') : 'Standard Options';
+                row.appendChild(convenienceCell);
                 
                 // Rating cell
                 const ratingCell = document.createElement('td');
@@ -2096,8 +2283,9 @@
             const typeFilter = document.getElementById('type-filter');
             const locationFilter = document.getElementById('location-filter');
             const serviceFilter = document.getElementById('service-filter');
+            const convenienceFilter = document.getElementById('convenience-filter');
             
-            if (!typeFilter || !locationFilter || !serviceFilter) {
+            if (!typeFilter || !locationFilter || !serviceFilter || !convenienceFilter) {
                 console.warn('⚠️ Filter elements not found');
                 return;
             }
@@ -2106,36 +2294,14 @@
                 const typeValue = typeFilter.value;
                 const locationValue = locationFilter.value;
                 const serviceValue = serviceFilter.value;
+                const convenienceValue = convenienceFilter.value;
                 
-                console.log('🔍 Applying filters:', { typeValue, locationValue, serviceValue });
+                console.log('🔍 Applying filters:', { typeValue, locationValue, serviceValue, convenienceValue });
                 
                 const filteredPractices = veterinariansData.filter(practice => {
-                    // Type filter
+                    // Practice Type filter
                     if (typeValue !== 'all') {
-                        const practiceTypeLower = practice.type.toLowerCase();
-                        let typeMatch = false;
-                        
-                        switch(typeValue) {
-                            case 'full-service':
-                                typeMatch = practiceTypeLower.includes('full-service') || practiceTypeLower.includes('hospital');
-                                break;
-                            case 'aaha':
-                                typeMatch = practice.aaha;
-                                break;
-                            case 'emergency':
-                                typeMatch = practice.emergency24 || practice.emergencyHours.includes('24');
-                                break;
-                            case 'corporate':
-                                typeMatch = practiceTypeLower.includes('corporate') || practiceTypeLower.includes('chain');
-                                break;
-                            case 'specialty':
-                                typeMatch = practiceTypeLower.includes('specialty') || practiceTypeLower.includes('mobile');
-                                break;
-                            default:
-                                typeMatch = practiceTypeLower.includes(typeValue);
-                        }
-                        
-                        if (!typeMatch) return false;
+                        if (practice.practiceCategory !== typeValue) return false;
                     }
                     
                     // Location filter
@@ -2156,9 +2322,6 @@
                             case 'belleville':
                                 locationMatch = practiceLocationLower.includes('belleville');
                                 break;
-                            case 'emergency':
-                                locationMatch = practiceLocationLower.includes('collinsville') || practiceLocationLower.includes('glen carbon');
-                                break;
                             default:
                                 locationMatch = practiceLocationLower.includes(locationValue);
                         }
@@ -2166,12 +2329,22 @@
                         if (!locationMatch) return false;
                     }
                     
-                    // Service filter
+                    // Service filter (Medical + Emergency)
                     if (serviceValue !== 'all') {
                         if (serviceValue === 'exotic' && !practice.exoticPets) return false;
                         if (serviceValue === 'rehab' && !practice.rehabilitation) return false;
-                        if (serviceValue === 'weekend' && !practice.weekendHours) return false;
+                        if (serviceValue === 'surgery' && !practice.advancedSurgery) return false;
                         if (serviceValue === '24hour' && !practice.emergency24) return false;
+                        if (serviceValue === 'weekend' && !practice.weekendHours) return false;
+                    }
+                    
+                    // Convenience & Financing filter
+                    if (convenienceValue !== 'all') {
+                        if (convenienceValue === 'sameday' && practice.sameDayAppointments !== true) return false;
+                        if (convenienceValue === 'online' && !practice.onlineBooking) return false;
+                        if (convenienceValue === 'financing' && !practice.multipleFinancing) return false;
+                        if (convenienceValue === 'wellness' && !practice.wellnessPlans) return false;
+                        if (convenienceValue === 'discounts' && (practice.specialDiscounts === 'None Listed' || !practice.specialDiscounts)) return false;
                     }
                     
                     return true;
@@ -2186,6 +2359,7 @@
             typeFilter.addEventListener('change', applyFilters);
             locationFilter.addEventListener('change', applyFilters);
             serviceFilter.addEventListener('change', applyFilters);
+            convenienceFilter.addEventListener('change', applyFilters);
         }
 
         // Update table with filtered data
@@ -2263,17 +2437,27 @@
                 typeCell.textContent = practice.type;
                 row.appendChild(typeCell);
                 
-                const aahaCell = document.createElement('td');
-                aahaCell.textContent = practice.aaha ? 'Yes' : 'No';
-                if (practice.aaha) {
-                    aahaCell.style.color = 'var(--success-color)';
-                    aahaCell.style.fontWeight = '600';
-                }
-                row.appendChild(aahaCell);
+                // Services cell (Medical + Emergency)
+                const servicesCell = document.createElement('td');
+                const topServices = [];
+                if (practice.aaha) topServices.push('AAHA');
+                if (practice.exoticPets) topServices.push('Exotic Pets');
+                if (practice.rehabilitation) topServices.push('Rehab');
+                if (practice.emergency24) topServices.push('24/7 Emergency');
+                if (practice.advancedSurgery) topServices.push('Surgery');
+                servicesCell.textContent = topServices.length > 0 ? topServices.slice(0, 2).join(', ') : 'Standard Care';
+                row.appendChild(servicesCell);
                 
-                const specialtiesCell = document.createElement('td');
-                specialtiesCell.textContent = practice.specialties.slice(0, 2).join(', ');
-                row.appendChild(specialtiesCell);
+                // Convenience cell
+                const convenienceCell = document.createElement('td');
+                const convenienceFeatures = [];
+                if (practice.sameDayAppointments === true) convenienceFeatures.push('Same-Day');
+                else if (practice.sameDayAppointments === 'Call to Check') convenienceFeatures.push('Call to Check');
+                if (practice.onlineBooking) convenienceFeatures.push('Online Booking');
+                if (practice.multipleFinancing) convenienceFeatures.push('Multiple Financing');
+                if (practice.wellnessPlans) convenienceFeatures.push('Wellness Plans');
+                convenienceCell.textContent = convenienceFeatures.length > 0 ? convenienceFeatures.slice(0, 2).join(', ') : 'Standard Options';
+                row.appendChild(convenienceCell);
                 
                 const ratingCell = document.createElement('td');
                 if (practice.rating) {
