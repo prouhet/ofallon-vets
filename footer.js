@@ -278,6 +278,12 @@ const crossNavHTML = `
 function loadCrossNavigation() {
     console.log('🔗 Loading cross-navigation footer for veterinarians...');
     
+    // ✅ CHECK: Prevent duplicate injection
+    if (document.querySelector('#directories')) {
+        console.log('⚠️ Cross-navigation already exists, skipping injection');
+        return;
+    }
+    
     // Add CSS first
     document.head.insertAdjacentHTML('beforeend', crossNavCSS);
     
@@ -314,33 +320,31 @@ function loadCrossNavigation() {
 
 console.log('📦 Footer.js loaded successfully for veterinarians');
 
-// Auto-execute with proper timing
+// Auto-execute with proper timing - SIMPLIFIED to prevent multiple calls
 function initializeFooter() {
+    // ✅ EARLY EXIT: If already initialized, don't run again
+    if (document.querySelector('#directories')) {
+        console.log('🎯 Cross-navigation already initialized');
+        return;
+    }
+    
     if (document.querySelector('#contact')) {
         loadCrossNavigation();
     } else {
-        console.log('⏳ Contact section not found, retrying...');
-        setTimeout(initializeFooter, 100);
+        console.log('⏳ Contact section not found, retrying once...');
+        // Only retry once to avoid infinite loops
+        setTimeout(() => {
+            if (!document.querySelector('#directories') && document.querySelector('#contact')) {
+                loadCrossNavigation();
+            }
+        }, 500);
     }
 }
 
-// Start the initialization with multiple triggers for reliability
-document.addEventListener('DOMContentLoaded', initializeFooter);
-
+// Single initialization trigger - simplified approach
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeFooter);
 } else {
+    // Document is already loaded
     initializeFooter();
 }
-
-window.addEventListener('load', function() {
-    setTimeout(initializeFooter, 100);
-});
-
-// Fallback initialization
-setTimeout(function() {
-    if (!document.querySelector('#directories')) {
-        console.log('🔄 Fallback initialization triggered for footer');
-        initializeFooter();
-    }
-}, 500);
