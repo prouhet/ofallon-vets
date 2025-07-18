@@ -1,7 +1,62 @@
 // footer.js - Cross-Navigation Footer for O'Fallon Veterinarians
-// Adapted from working lawn services footer
+// Updated with current site highlighting CSS
 
 console.log('🐾 Loading footer.js for O\'Fallon Veterinarians...');
+
+// CSS for current site highlighting
+const crossNavCSS = `
+<style>
+/* Cross-Navigation Styles */
+.dir-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+}
+
+.dir-card.current-site {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
+    border-left: 5px solid var(--accent-color) !important;
+}
+
+.dir-card.current-site h3,
+.dir-card.current-site p {
+    color: white !important;
+}
+
+.dir-card.current-site i {
+    color: var(--accent-color) !important;
+}
+
+.dir-card.current-site span {
+    background: var(--accent-color) !important;
+    color: var(--secondary-color) !important;
+    position: relative;
+}
+
+.dir-card.current-site span::after {
+    content: "Current Page";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .directories-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+`;
 
 // Cross-navigation HTML with veterinary theming
 const crossNavHTML = `
@@ -255,6 +310,9 @@ const crossNavHTML = `
 // Function to inject cross-navigation and highlight current site
 function loadCrossNavigation() {
     console.log('🔗 Loading cross-navigation footer for veterinarians...');
+    
+    // Add CSS first
+    document.head.insertAdjacentHTML('beforeend', crossNavCSS);
     
     // Find contact section and inject footer after it
     const contactSection = document.querySelector('#contact');
