@@ -58,7 +58,7 @@ const crossNavCSS = `
 </style>
 `;
 
-// Cross-navigation HTML with veterinary theming
+// Cross-navigation HTML with veterinary theming - ONLY the directories section
 const crossNavHTML = `
 <!-- CROSS-DIRECTORY NAVIGATION SECTION -->
 <section id="directories" class="other-directories" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 60px 0; margin-top: 40px;">
@@ -272,39 +272,6 @@ const crossNavHTML = `
         </div>
     </div>
 </section>
-
-<!-- REGULAR FOOTER -->
-<footer style="background-color: var(--secondary-color); color: white; padding: 60px 0 20px;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
-            <div style="flex: 1; min-width: 200px;">
-                <h3 style="margin-bottom: 10px;">O'Fallon Veterinarians Directory</h3>
-                <p>Your guide to pet care in the 62269 area</p>
-            </div>
-            
-            <div style="flex: 1; min-width: 200px;">
-                <h4>Quick Links</h4>
-                <ul style="list-style: none; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;"><a href="#hero" style="color: #feb2b2; text-decoration: none;">Home</a></li>
-                    <li style="margin-bottom: 10px;"><a href="#matcher" style="color: #feb2b2; text-decoration: none;">Find Your Match</a></li>
-                    <li style="margin-bottom: 10px;"><a href="#comparison" style="color: #feb2b2; text-decoration: none;">Comparison Chart</a></li>
-                    <li style="margin-bottom: 10px;"><a href="#profiles" style="color: #feb2b2; text-decoration: none;">Vet Profiles</a></li>
-                    <li style="margin-bottom: 10px;"><a href="#featured" style="color: #feb2b2; text-decoration: none;">Featured Practice</a></li>
-                    <li style="margin-bottom: 10px;"><a href="#faq" style="color: #feb2b2; text-decoration: none;">FAQ</a></li>
-                </ul>
-            </div>
-            
-            <div style="flex: 2; min-width: 300px;">
-                <h4>Disclaimer</h4>
-                <p>This directory is for informational purposes only. Information is subject to change. Please contact individual veterinary practices for the most current services, pricing, and availability. We are not affiliated with any practice listed except our featured partner.</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem;">
-            <p>&copy; 2025 O'Fallon Veterinarians Directory. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
 `;
 
 // Function to inject cross-navigation and highlight current site
